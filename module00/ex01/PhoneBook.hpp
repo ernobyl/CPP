@@ -13,7 +13,7 @@ class	PhoneBook
 	
 	public:
 		PhoneBook();
-		void addContact(const Contact &newContact);
+		void addContact();
 		void displayContacts() const;
 		void displayContactByIndex(int index) const;
 };

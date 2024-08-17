@@ -23,3 +23,10 @@ void Contact::displayContact() const
 	std::cout << lastName << std::endl;
 	std::cout << nickName << std::endl;
 }
+
+int			Contact::getId() const { return id; }
+std::string Contact::getFirstName() const { return firstName; }
+std::string Contact::getLastName() const { return lastName; }
+std::string Contact::getNickName() const { return nickName; }
+std::string Contact::getPhoneNumber() const { return phoneNumber; }
+std::string Contact::getDarkSecret() const { return darkSecret; }

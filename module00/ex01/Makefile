@@ -1,7 +1,9 @@
 NAME = phonebook
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
-SRCS =	phonebook.cpp
+SRCS =	PhoneBook.cpp \
+		Contact.cpp \
+		main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
 
@@ -12,7 +14,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "Compiling My Awesome PhoneBook..."
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done!"
 
 clean:
