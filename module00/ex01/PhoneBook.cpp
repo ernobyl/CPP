@@ -2,7 +2,7 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : oldestContactIndex(0), contactCount(0), nextId(0) {}
+PhoneBook::PhoneBook() : oldestContactIndex(0), contactCount(0), nextId(1) {}
 
 void PhoneBook::addContact()
 {
@@ -41,8 +41,13 @@ void PhoneBook::addContact()
     nextId++;
 }
 
-void PhoneBook::displayContacts() const
+int PhoneBook::displayContacts() const
 {
+    if (contactCount < 1)
+    {
+        std::cout << "No contacts :(" << std::endl;
+        return 0;
+    }
     std::cout << std::setw(10) << std::right << "Index"
               << '|' << std::setw(10) << std::right << "First Name"
               << '|' << std::setw(10) << std::right << "Last Name"
@@ -56,11 +61,12 @@ void PhoneBook::displayContacts() const
                   << '|' << std::setw(10) << std::right << contacts[i].getLastName().substr(0, 9) + (contacts[i].getLastName().length() > 9 ? "." : "")
                   << '|' << std::setw(10) << std::right << contacts[i].getNickName().substr(0, 9) + (contacts[i].getNickName().length() > 9 ? "." : "") << std::endl;
     }
+    return 1;
 }
 
 void PhoneBook::displayContactByIndex(int index) const
 {
-    if (index < 0 || index >= contactCount)
+    if (index < 0 || index >= contactCount || isdigit(index) == false)
 	{
         std::cout << "Invalid index!" << std::endl;
         return;

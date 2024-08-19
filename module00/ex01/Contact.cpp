@@ -18,10 +18,11 @@ void Contact::setContact(int contactId, const std::string &fName,
 }
 void Contact::displayContact() const
 {
-	std::cout << id << std::endl;
-	std::cout << firstName << std::endl;
-	std::cout << lastName << std::endl;
-	std::cout << nickName << std::endl;
+	std::cout << "First name: " << firstName << std::endl;
+	std::cout << "Last name: " << lastName << std::endl;
+	std::cout << "Nickname: " << nickName << std::endl;
+	std::cout << "Phone: " << phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << darkSecret << std::endl;
 }
 
 int			Contact::getId() const { return id; }

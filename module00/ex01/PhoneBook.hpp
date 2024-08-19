@@ -13,9 +13,9 @@ class	PhoneBook
 	
 	public:
 		PhoneBook();
-		void addContact();
-		void displayContacts() const;
-		void displayContactByIndex(int index) const;
+		void	addContact();
+		int 	displayContacts() const;
+		void 	displayContactByIndex(int index) const;
 };
 
 #endif
