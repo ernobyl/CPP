@@ -9,7 +9,6 @@ class	PhoneBook
 		Contact	contacts[8];
 		int		oldestContactIndex;
 		int		contactCount;
-		int		nextId;
 	
 	public:
 		PhoneBook();

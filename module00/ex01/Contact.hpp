@@ -15,7 +15,7 @@ class	Contact
 	
 	public:
 		Contact();
-		void		setContact(int contactId, const std::string &fName,
+		void		setContact(const std::string &fName,
 								const std::string &lName, const std::string &nName,
 								const std::string &pNumber, const std::string &dSecret);
 		void 		displayContact() const;

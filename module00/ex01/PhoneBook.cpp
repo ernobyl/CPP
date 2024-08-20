@@ -2,7 +2,7 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : oldestContactIndex(0), contactCount(0), nextId(1) {}
+PhoneBook::PhoneBook() : oldestContactIndex(0), contactCount(0) {}
 
 void PhoneBook::addContact()
 {
@@ -26,7 +26,7 @@ void PhoneBook::addContact()
 	}
 	
 	Contact newContact;
-    newContact.setContact(nextId, fName, lName, nName, pNumber, dSecret);
+    newContact.setContact(fName, lName, nName, pNumber, dSecret);
 
     if (contactCount < 8)
 	{
@@ -38,7 +38,6 @@ void PhoneBook::addContact()
         contacts[oldestContactIndex] = newContact;
         oldestContactIndex = (oldestContactIndex + 1) % 8;
     }
-    nextId++;
 }
 
 int PhoneBook::displayContacts() const
@@ -56,7 +55,8 @@ int PhoneBook::displayContacts() const
 
     for (int i = 0; i < contactCount; ++i)
 	{
-        std::cout << std::setw(10) << std::right << contacts[i].getId()
+        int index = 1;
+        std::cout << std::setw(10) << std::right << index + i
                   << '|' << std::setw(10) << std::right << contacts[i].getFirstName().substr(0, 9) + (contacts[i].getFirstName().length() > 9 ? "." : "")
                   << '|' << std::setw(10) << std::right << contacts[i].getLastName().substr(0, 9) + (contacts[i].getLastName().length() > 9 ? "." : "")
                   << '|' << std::setw(10) << std::right << contacts[i].getNickName().substr(0, 9) + (contacts[i].getNickName().length() > 9 ? "." : "") << std::endl;
@@ -66,7 +66,7 @@ int PhoneBook::displayContacts() const
 
 void PhoneBook::displayContactByIndex(int index) const
 {
-    if (index < 0 || index >= contactCount || isdigit(index) == false)
+    if (index < 0 || index >= contactCount)
 	{
         std::cout << "Invalid index!" << std::endl;
         return;

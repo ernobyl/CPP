@@ -3,13 +3,12 @@
 
 Contact::Contact() : id(-1), firstName(""), lastName(""), nickName(""),
 						phoneNumber(""), darkSecret("") {}
-void Contact::setContact(int contactId, const std::string &fName,
+void Contact::setContact(const std::string &fName,
 							const std::string &lName,
 							const std::string &nName,
 							const std::string &pNumber,
 							const std::string &dSecret)
 {
-	id = contactId;
 	firstName = fName;
 	lastName = lName;
 	nickName = nName;
