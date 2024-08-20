@@ -17,15 +17,30 @@ int main()
 		{
 			if (phonebook.displayContacts())
 			{
-				int index;
 				std::cout << "Enter index of contact to display: ";
-				std::cin >> index;
-				std::cin.ignore();
-				phonebook.displayContactByIndex(index - 1);
+				while (1)
+				{
+					int index;
+					std::cin >> index;
+					std::cin.ignore();
+					if (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cout << "Invalid input. Please enter a number." << std::endl;
+						break;
+					}
+					else
+					{
+						phonebook.displayContactByIndex(index - 1);
+						break;
+					}
+				}
 			}
 		}
 		else if (cmd == "EXIT")
 			break;
+		else if (cmd == "")
+			continue;
 		else
 			std::cout << "Invalid command." << std::endl;
 	}
