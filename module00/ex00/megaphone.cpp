@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 		for(int i = 1; argv[i]; ++i)
 			std::cout << argv[i];
 		std::cout << std::endl;
-
 	}
 	return 0;
 }
