@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     std::string content((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
     inputFile.close();
     std::string newContent = replaceOccurrences(content, str1, str2);
-    std::string outputFilename = "replace_" + filename;
+    std::string outputFilename = filename + ".replace";
     std::ofstream outputFile(outputFilename);
     if (!outputFile.is_open())
     {
