@@ -5,22 +5,22 @@ Harl::Harl()
 {
 }
 
-void Harl::debug()
+void Harl::_debug()
 {
     std::cout << "[DEBUG] This is a debug message." << std::endl;
 }
 
-void Harl::info()
+void Harl::_info()
 {
     std::cout << "[INFO] This is information." << std::endl;
 }
 
-void Harl::warning()
+void Harl::_warning()
 {
     std::cout << "[WARNING] You have been warned." << std::endl;
 }
 
-void Harl::error()
+void Harl::_error()
 {
     std::cout << "[ERROR] You have failed at coding." << std::endl;
 }
@@ -46,13 +46,13 @@ void Harl::complain(std::string level)
     switch (levelIndex)
     {
         case 0:
-            this->debug();
+            this->_debug();
         case 1:
-            this->info();
+            this->_info();
         case 2:
-            this->warning();
+            this->_warning();
         case 3:
-            this->error();
+            this->_error();
             break;
         default:
             std::cout << "Level not recognized." << std::endl;
