@@ -1,7 +1,9 @@
-NAME = fixedpoint
+NAME = BSP
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
 SRCS =	Fixed.cpp \
+		Point.cpp \
+		bsp.cpp \
 		main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
@@ -12,7 +14,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)
-	@echo "Compiling fixedpoint..."
+	@echo "Compiling BSP..."
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done!"
 

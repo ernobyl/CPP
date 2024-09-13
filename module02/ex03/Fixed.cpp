@@ -6,7 +6,7 @@ const int Fixed::_fractionalBits = 8;
 /* Constructors */
 Fixed::Fixed() : _fixedPointValue(0)
 {
-    std::cout << "Default constructor called." << std::endl;
+    //std::cout << "Default constructor called." << std::endl;
 }
 
 Fixed::Fixed(const int param)
@@ -17,25 +17,25 @@ Fixed::Fixed(const int param)
 
 Fixed::Fixed(const float param)
 {
-    std::cout << "Float constructor called." << std::endl;
+    //std::cout << "Float constructor called." << std::endl;
     _fixedPointValue = roundf(param * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 /* Destructor */
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called." << std::endl;
+    //std::cout << "Destructor called." << std::endl;
 }
 
 /* Operator overload functions */
 Fixed &Fixed::operator=(const Fixed &other)
 {
-    std::cout << "Copy assignment operator called." << std::endl;
+    //std::cout << "Copy assignment operator called." << std::endl;
     if (this != &other)
         this->_fixedPointValue = other._fixedPointValue;
     return (*this);
