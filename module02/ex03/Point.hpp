@@ -6,8 +6,8 @@
 class Point
 {
 	private:
-		const Fixed x;
-		const Fixed y;
+		const Fixed _x;
+		const Fixed _y;
 	public:
 		/* Constructors */
 		Point();
@@ -20,11 +20,11 @@ class Point
 		~Point();
 
 		/* Getters for x and y */
-		Fixed getX() const;
-		Fixed getY() const;
+		const Fixed &getX() const;
+		const Fixed &getY() const;
 	
 };
 
-bool bsp( Point const a, Point const b, Point const c, Point const point);
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

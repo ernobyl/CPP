@@ -3,10 +3,10 @@
 
 int main( void )
 {
-    Point a(0, 0);
-    Point b(10, 0);
-    Point c(5, 10);
-    Point p(5, 5);
+    const Point a(0, 0);
+    const Point b(10, 0);
+    const Point c(5, 10);
+    const Point p(5, 5);
 
     if (bsp(a, b, c, p) == true)
         std::cout << "Point is inside triangle." << std::endl;

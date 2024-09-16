@@ -1,11 +1,11 @@
 #include "Point.hpp"
 
 /* Constructors */
-Point::Point() : x(0), y(0) {}
+Point::Point() : _x(0), _y(0) {}
 
-Point::Point(float xVal, float yVal) : x(xVal), y(yVal) {}
+Point::Point(float xVal, float yVal) : _x(xVal), _y(yVal) {}
 
-Point::Point(const Point &other) : x(other.x), y(other.y) {}
+Point::Point(const Point &other) : _x(other._x), _y(other._y) {}
 
 /* Assignment operator overload */
 Point &Point::operator=(const Point &other)
@@ -17,12 +17,12 @@ Point &Point::operator=(const Point &other)
 Point::~Point() {}
 
 /* Getters for x and y */
-Fixed Point::getX() const
+const Fixed &Point::getX() const
 {
-    return (this->x);
+    return (this->_x);
 }
 
-Fixed Point::getY() const
+const Fixed &Point::getY() const
 {
-    return (this->y);
+    return (this->_y);
 }

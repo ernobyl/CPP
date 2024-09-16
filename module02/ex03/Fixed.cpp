@@ -11,7 +11,7 @@ Fixed::Fixed() : _fixedPointValue(0)
 
 Fixed::Fixed(const int param)
 {
-    std::cout << "Int constructor called." << std::endl;
+    //std::cout << "Int constructor called." << std::endl;
     _fixedPointValue = param << _fractionalBits;
 }
 
@@ -71,24 +71,24 @@ bool Fixed::operator!=(Fixed fixed) const
     return (this->toFloat() != fixed.toFloat());
 }
 
-float	Fixed::operator+(Fixed fixed) const
+Fixed	Fixed::operator+(Fixed fixed) const
 {
-    return (this->toFloat() + fixed.toFloat());
+    return Fixed(this->toFloat() + fixed.toFloat());
 }
 
-float	Fixed::operator-(Fixed fixed) const
+Fixed	Fixed::operator-(Fixed fixed) const
 {
-    return (this->toFloat() - fixed.toFloat());
+    return Fixed(this->toFloat() - fixed.toFloat());
 }
 
-float	Fixed::operator*(Fixed fixed) const
+Fixed	Fixed::operator*(Fixed fixed) const
 {
-    return (this->toFloat() * fixed.toFloat());
+    return Fixed(this->toFloat() * fixed.toFloat());
 }
 
-float	Fixed::operator/(Fixed fixed) const
+Fixed	Fixed::operator/(Fixed fixed) const
 {
-    return (this->toFloat() / fixed.toFloat());
+    return Fixed(this->toFloat() / fixed.toFloat());
 }
 
 Fixed Fixed::operator++()
