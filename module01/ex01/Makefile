@@ -1,6 +1,7 @@
 NAME = moar_brainz
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	Zombie.cpp \
 		zombieHorde.cpp \
 		main.cpp

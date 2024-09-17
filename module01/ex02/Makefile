@@ -1,6 +1,7 @@
 NAME = HIBRAIN
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}

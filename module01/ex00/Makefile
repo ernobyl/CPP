@@ -1,6 +1,7 @@
 NAME = BraiiiiiiinnnzzzZ
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	Zombie.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
@@ -14,7 +15,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)
-	@echo "Compiling zombie manager thing..."
+	@echo "Compiling BraiiiiiiinnnzzzZ..."
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done!"
 

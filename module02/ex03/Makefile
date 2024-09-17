@@ -1,6 +1,7 @@
 NAME = BSP
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	Fixed.cpp \
 		Point.cpp \
 		bsp.cpp \

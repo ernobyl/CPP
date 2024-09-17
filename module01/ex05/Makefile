@@ -1,6 +1,7 @@
 NAME = harl
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	Harl.cpp \
 		main.cpp
 

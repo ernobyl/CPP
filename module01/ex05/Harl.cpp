@@ -22,7 +22,7 @@ void Harl::_warning()
 
 void Harl::_error()
 {
-    std::cout << "[ERROR] You have failed at coding." << std::endl;
+    std::cout << "[ERROR] You have made some errors, but that is ok." << std::endl;
 }
 
 void Harl::complain(std::string level)

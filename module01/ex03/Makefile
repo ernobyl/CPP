@@ -1,6 +1,7 @@
 NAME = violence
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	Weapon.cpp \
 		HumanA.cpp \
 		HumanB.cpp \

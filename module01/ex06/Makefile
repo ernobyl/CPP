@@ -1,6 +1,7 @@
 NAME = harlFilter
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	HarlFilter.cpp \
 		main.cpp
 

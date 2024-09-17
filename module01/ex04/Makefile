@@ -1,6 +1,7 @@
 NAME = replace_tool
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+STANDARD = -std=c++11
+CFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS =	replace_util.cpp \
 		main.cpp
 
