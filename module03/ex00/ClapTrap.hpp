@@ -12,7 +12,8 @@ class ClapTrap
         int         _attackDamage;
     public:
         // Default constructor
-        ClapTrap(std::string _name);
+        ClapTrap();
+        ClapTrap(std::string name);
 
         // Copy constructor
         ClapTrap(const ClapTrap& other);
