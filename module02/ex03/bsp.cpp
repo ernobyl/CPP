@@ -17,13 +17,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed tolerance = Fixed(0.001f);
     Fixed areaSum = areaPAB + areaPAC + areaPBC;
 
-    // debugging
-    std::cout << "Area ABC: " << areaABC << "\n";
-    std::cout << "Area PAB: " << areaPAB << "\n";
-    std::cout << "Area PAC: " << areaPAC << "\n";
-    std::cout << "Area PBC: " << areaPBC << "\n";
-    std::cout << "Area Sum: " << areaSum << "\n";
-
     bool hasSameSign = (areaABC > 0 && areaPAB > 0 && areaPAC > 0 && areaPBC > 0) ||
                        (areaABC < 0 && areaPAB < 0 && areaPAC < 0 && areaPBC < 0);
     if (hasSameSign && (areaSum == areaABC))

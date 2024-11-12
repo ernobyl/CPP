@@ -1,34 +1,40 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 // default constructor
-ClapTrap::ClapTrap()
-    : _name("default claptrap"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "ClapTrap default constructor called" << std::endl;
+	std::cout << "ScavTrap default constructor called" << std::endl;
+	this->_name = "default scavtrap";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 // parameterized constructor
-ClapTrap::ClapTrap(std::string name)
-    : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ScavTrap::ScavTrap(std::string name) : ClapTrap()
 {
-    std::cout << "ClapTrap parameterized constructor called" << std::endl;
+	std::cout << "ScavTrap parameterized constructor called" << std::endl;
+	this->_name = name;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 // destructor
-ClapTrap::~ClapTrap()
+ScavTrap::~ScavTrap()
 {
-    std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
 // copy constructor
-ClapTrap::ClapTrap(const ClapTrap &other)
+ScavTrap::ScavTrap(const ScavTrap &other)
 {
     *this = other;
 }
 
 // copy assignment operator
-ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
     {
@@ -40,11 +46,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
     return *this;
 }
 
-void ClapTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
     if (target.empty())
     {
-        std::cout << this->_name << " attacks the air for "
+        std::cout << this->_name << " attacks nothing for "
             << this->_attackDamage << " damage." << std::endl;
     }
     else if (this->_energyPoints != 0 && this->_hitPoints != 0)
@@ -57,7 +63,7 @@ void ClapTrap::attack(const std::string& target)
         std::cout << this->_name << " can't do anything." << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ScavTrap::takeDamage(unsigned int amount)
 {
     this->_hitPoints -= amount;
     if (this->_hitPoints < 0)
@@ -65,16 +71,21 @@ void ClapTrap::takeDamage(unsigned int amount)
     std::cout << this->_name << " takes " << amount << " damage" << std::endl;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+void ScavTrap::beRepaired(unsigned int amount)
 {
-    if (this->_energyPoints != 0 && this->_hitPoints != 0 && this->_hitPoints < 10)
+    if (this->_energyPoints != 0 && this->_hitPoints != 0 && this->_hitPoints < 100)
     {
         this->_hitPoints += amount;
-        if (this->_hitPoints > 10)
-            this->_hitPoints = 10;
+        if (this->_hitPoints > 100)
+            this->_hitPoints = 100;
         this->_energyPoints--;
         std::cout << this->_name << " is repaired for " << amount << " hitpoints." << std::endl;
     }
     else
         std::cout << this->_name << " can't be repaired." << std::endl;
+}
+
+void ScavTrap::guardGate()
+{
+    std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
 }
