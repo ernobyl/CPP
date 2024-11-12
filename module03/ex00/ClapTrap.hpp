@@ -1,6 +1,8 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
+#define HP_MAX 10
+
 #include <string>
 
 class ClapTrap

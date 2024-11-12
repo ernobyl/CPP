@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main(void)
@@ -10,9 +11,13 @@ int main(void)
     ScavTrap scavvyboy("scavvyboy");
     std::cout << "\033[32m↑    ScavTrap created\033[0m" << std::endl;
 
-    clappyboy.attack("enemy");
-    clappyboy.attack("another enemy");
-    scavvyboy.attack("");
+    std::cout << "\033[33m↓    creating a new FragTrap\033[0m" << std::endl;    
+    FragTrap fraggyboy("fraggyboy");
+    std::cout << "\033[32m↑    FragTrap created\033[0m" << std::endl;
+
+    fraggyboy.attack("enemy");
+    fraggyboy.attack("another enemy");
+    fraggyboy.attack("");
     scavvyboy.attack("enemy");
     clappyboy.attack("enemy");
     clappyboy.attack("another enemy");
@@ -23,7 +28,8 @@ int main(void)
     clappyboy.takeDamage(5);
     clappyboy.takeDamage(5);
     clappyboy.beRepaired(2);
-
+    
+    fraggyboy.highFivesGuys();
     scavvyboy.guardGate();
 
     return (0);

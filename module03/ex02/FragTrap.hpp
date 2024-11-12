@@ -1,30 +1,30 @@
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-#define HP_MAX_SCAV 100
+#define HP_MAX_FRAG 100
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
     public:
         // Default constructor
-        ScavTrap();
-        ScavTrap(std::string name);
+        FragTrap();
+        FragTrap(std::string name);
 
         // Copy constructor
-        ScavTrap(const ScavTrap& other);
+        FragTrap(const FragTrap& other);
 
         // Copy assignment operator
-        ScavTrap& operator=(const ScavTrap& other);
+        FragTrap& operator=(const FragTrap& other);
 
         // Destructor
-        ~ScavTrap();
+        ~FragTrap();
 
         void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-        void guardGate();
+        void highFivesGuys();
 
 };
 
