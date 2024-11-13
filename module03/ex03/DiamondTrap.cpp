@@ -2,20 +2,19 @@
 #include <iostream>
 
 // default constructor
-DiamondTrap::DiamondTrap() : ClapTrap("default diamondtrap_clap_trap")
+DiamondTrap::DiamondTrap()
 {
+	this->_name = "default_diamond"; 
+	ClapTrap::_name = "default_diamond_clap_name";
 	std::cout << "DiamondTrap default constructor called" << std::endl;
-	this->_name = "default diamondtrap";
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
 }
 
 // parameterized constructor
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_trap")
+DiamondTrap::DiamondTrap(std::string const &name)
 {
 	std::cout << "DiamondTrap parameterized constructor called" << std::endl;
 	this->_name = name;
+	ClapTrap::_name = name + "_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;
@@ -38,7 +37,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
     if (this != &other)
     {
-        this->_name = other._name + "_clap_trap";
+        this->_name = other._name;
+		ClapTrap::_name = other.ClapTrap::_name + "_clap_name";
         this->_hitPoints = other._hitPoints;
         this->_energyPoints = other._energyPoints;
         this->_attackDamage = other._attackDamage;
