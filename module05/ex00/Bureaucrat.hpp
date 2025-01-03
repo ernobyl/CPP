@@ -2,6 +2,7 @@
 
 #include <string>
 #include <exception>
+#include <iostream>
 
 class Bureaucrat
 {
@@ -13,7 +14,7 @@ public:
 	Bureaucrat();
 
 	// Parameterized constructor
-	Bureaucrat(std::string& name, int grade);
+	Bureaucrat(const std::string& name, int grade);
 
 	// Copy constructor
 	Bureaucrat(const Bureaucrat& other);
@@ -24,15 +25,27 @@ public:
 	// Destructor
 	~Bureaucrat();
 
-	class GradeTooLowException : std::exception
+	// Rank incrementation and decrementation
+	void	rank_up();
+	void	rank_down();
+
+	// Getters
+	const std::string& getName() const;
+	int getGrade() const;
+
+	// Exceptions
+	class GradeTooLowException : public std::exception
 	{
 		public:
-			const char* what() const throw() override;
+			const char* what() const throw();
 	};
 
-	class GradeTooHighException : std::exception
+	class GradeTooHighException : public std::exception
 	{
 		public:
-			const char* what() const throw() override;
+			const char* what() const throw();
 	};
 };
+
+//  Insertion («) operator overload
+std::ostream& operator<< (std::ostream& os, const Bureaucrat& bureaucrat);
