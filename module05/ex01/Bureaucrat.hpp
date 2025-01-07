@@ -3,6 +3,9 @@
 #include <string>
 #include <exception>
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,9 @@ public:
 	// Rank incrementation and decrementation
 	void	rankUp();
 	void	rankDown();
+
+	// Form signing function
+	void	signForm(Form& form);
 
 	// Getters
 	const std::string& getName() const;

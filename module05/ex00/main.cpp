@@ -17,7 +17,6 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Cannot create Peter!" << std::endl;
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	std::cout << "\nTry creating Luke with grade 151" << std::endl;
@@ -28,29 +27,26 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Cannot create Luke!" << std::endl;
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	std::cout << "\nLet's try promoting John!" << std::endl;
+	std::cout << "\nTry promoting John:" << std::endl;
 	/* Increment throwing exception */
 	try
 	{
-		John.rank_up();
+		John.rankUp();
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Cannot promote John!" << std::endl;
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	std::cout << "\nLet's try demoting Paul!" << std::endl;
+	std::cout << "\nTry demoting Paul:" << std::endl;
 	/* Decrement throwing exception */
 	try
 	{
-		Paul.rank_down();
+		Paul.rankDown();
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "Cannot demote Paul!" << std::endl;
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 }

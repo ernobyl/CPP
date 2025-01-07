@@ -55,7 +55,20 @@ void	Bureaucrat::rankDown()
 		_grade++;
 		std::cout << "Bureaucrat " << _name << " demoted to rank " << _grade << std::endl;
 	}
+}
 
+// Form signing function
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed form: " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << _name << " couldn't sign form " << form.getName() << ". Reason: " << e.what() << std::endl;
+	}
 }
 
 // Getters
