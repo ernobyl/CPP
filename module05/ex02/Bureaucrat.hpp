@@ -35,6 +35,9 @@ public:
 	// Form signing function
 	void	signForm(AForm& form);
 
+	// Form execution function
+	void	executeForm(AForm const& form);
+
 	// Getters
 	const std::string& getName() const;
 	int getGrade() const;

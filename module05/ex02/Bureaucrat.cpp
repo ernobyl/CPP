@@ -71,6 +71,20 @@ void	Bureaucrat::signForm(AForm& form)
 	}
 }
 
+// Form execution function
+void	Bureaucrat::executeForm(AForm const& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed form: " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << _name << " couldn't execute form " << form.getName() << ". Reason: " << e.what() << std::endl;
+	}
+}
+
 // Getters
 const std::string& Bureaucrat::getName() const { return _name; }
 int Bureaucrat::getGrade() const { return _grade; }
