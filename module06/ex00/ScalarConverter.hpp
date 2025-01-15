@@ -2,6 +2,9 @@
 
 #include <string>
 
+#define INVALID_CHAR -1
+#define INVALID_INT 1000
+
 class ScalarConverter
 {
 public:
@@ -20,12 +23,17 @@ public:
 	static void	convert(const std::string& literal);
 
 private:
-	static bool	_notInt;
-	static bool	isCharLiteral(const std::string& literal);
-	static bool	isIntLiteral(const std::string& literal);
-	static bool	isFloatLiteral(const std::string& literal);
-	static bool	isDoubleLiteral(const std::string& literal);
-	static void	displayResults(int i, char c, float f, double d);
-	static bool	specialCase(const std::string& literal);
-	
+	static char		c;
+	static int		i;
+	static float	f;
+	static double	d;
+	static void		convertCharLiteral(const std::string& literal);
+	static void		convertIntLiteral(const std::string& literal);
+	static void		convertFloatLiteral(const std::string& literal);
+	static void		convertDoubleLiteral(const std::string& literal);
+	static void		displayChar();
+	static void		displayInt();
+	static void		displayFloat();
+	static void		displayDouble();
+	static void		displayResults();
 };
