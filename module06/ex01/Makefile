@@ -2,7 +2,7 @@ NAME = serializer
 CC = c++
 STANDARD = -std=c++11
 CFLAGS = -Wall -Wextra -Werror $(STANDARD)
-SRCS =	Serilaizer.cpp \
+SRCS =	Serializer.cpp \
 		main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
