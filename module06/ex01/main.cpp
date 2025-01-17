@@ -2,7 +2,7 @@
 #include "Serializer.hpp"
 #include <iostream>
 
-int	main(int argc, char **argv)
+int	main()
 {
 	Data		data{100, "Hello!"};
 	Data*		data_ptr;
