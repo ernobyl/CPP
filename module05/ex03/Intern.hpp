@@ -25,7 +25,7 @@ public:
 	/*
 	Function that takes two strings as parameters. 
 	The first one is the name of a form and the second one is the target of the
-	form. It return a pointer to a Form object (whose name is the one passed as parameter)
+	form. It returns a pointer to a Form object (whose name is the one passed as parameter)
 	whose target will be initialized to the second parameter
 	*/
 	AForm* makeForm(const std::string& name, const std::string& target);

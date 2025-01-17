@@ -31,7 +31,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat " << _name << " deleted." << std::endl;
+	//std::cout << "Bureaucrat " << _name << " deleted." << std::endl;
 }
 
 // Rank incrementation and decrementation
