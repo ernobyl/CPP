@@ -2,7 +2,7 @@ NAME = identify_type
 CC = c++
 STANDARD = -std=c++11
 CFLAGS = -Wall -Wextra -Werror $(STANDARD)
-SRCS =	Base.cpp \
+SRCS =	identifyType.cpp \
 		main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
