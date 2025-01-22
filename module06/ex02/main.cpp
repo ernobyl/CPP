@@ -9,6 +9,12 @@ void identify(Base& p);
 
 int main()
 {
+	std::cout << "Testing with unknown type:" << std::endl;
+	Base* U;
+	identify(U);
+	identify(*U);
+
+	std::cout << "--------------------------" << std::endl;
 	int seedcount = 6;
 	std::cout << "Random seed no. 1" << std::endl;
 	for (int i = 0; i < seedcount; i++)
