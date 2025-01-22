@@ -17,4 +17,7 @@ int	main()
 	std::cout << &data << std::endl;
 	std::cout << data_ptr << std::endl;
 
+	std::cout << data_ptr->i << std::endl;;
+	std::cout << data_ptr->str << std::endl;;
+
 }
