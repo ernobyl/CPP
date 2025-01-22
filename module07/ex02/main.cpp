@@ -3,15 +3,20 @@
 
 int	main()
 {
-	int size = 5;
-	Array<int> intArray(size);
-	for (int i = 0; i < size; i++)
+	Array<int> intArray(5);
+	for (int i = 0; i < intArray.size(); i++)
 	{
 		intArray[i] = i;
 		std::cout << intArray[i] << std::endl;
 	}
-	int getsize = intArray.size();
-	std::cout << "size: " << getsize << std::endl;
+	std::cout << "size: " << intArray.size() << std::endl;
+
+	Array<int> copyArray = intArray;
+	copyArray[0] = 50;
+	for (int i = 0; i < intArray.size(); i++)
+		std::cout << intArray[i] << std::endl;
+	for (int i = 0; i < copyArray.size(); i++)
+		std::cout << copyArray[i] << std::endl;
 
 	return 0;
 }
