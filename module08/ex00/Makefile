@@ -1,19 +1,19 @@
 NAME = easyfind
-CC = c++
+CPP = c++
 STANDARD = -std=c++11
-CFLAGS = -Wall -Wextra -Werror $(STANDARD)
+CPPFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS = main.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
 
 all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $<
+%.o: %.cpp
+	@$(CPP) $(CPPFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)
 	@echo "Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo "Done!"
 
 clean:
