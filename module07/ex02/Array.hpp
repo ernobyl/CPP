@@ -14,7 +14,7 @@ class Array
 		/* Construction with an unsigned int n as a parameter: Creates an array of n elements
 			initialized by default.
 			Tip: Try to compile int * a = new int(); then display *a. */
-		Array(unsigned int n) : _data(new T[n]()), _size(n) {};
+		Array(unsigned int n) : _data(n > 0 ? new T[n]() : nullptr), _size(n) {};
 
 		/* Copy constructor. Modifying either the
 			original array or its copy after copying musn’t affect the other array. */
@@ -24,16 +24,26 @@ class Array
 			original array or its copy after copying musn’t affect the other array. */
 		Array &operator=(const Array& other)
 		{
-			if (this != &other)
+			if (&other == this)
+				return *this;
+			T* temp = new T[other._size];
+			try
 			{
-				delete[] _data;
-				_size = other._size;
-				_data = new T[_size];
-				for (unsigned int i = 0; i < _size; ++i)
-					_data[i] = other._data[i];
+				for (unsigned int i = 0; i < other._size; i++)
+				{
+					temp[i] = other._data[i];
+				}
 			}
+			catch (...)
+			{
+				delete[] temp;
+				throw;
+			}
+			delete[] _data;
+			_data = temp;
+			_size = other._size;
 			return *this;
-		};
+		}
 
 		/* Destructor */
 		~Array() { delete[] _data; };
