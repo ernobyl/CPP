@@ -2,7 +2,8 @@ NAME = span
 CPP = c++
 STANDARD = -std=c++11
 CPPFLAGS = -Wall -Wextra -Werror $(STANDARD)
-SRCS = main.cpp
+SRCS = main.cpp \
+		Span.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
 
