@@ -9,7 +9,9 @@ class Span
 {
 private:
 	size_t			_max;
+	size_t			_cur;
 	std::set<int>	_set;
+	bool			_hasDup;
 public:
 	// Default constructor
 	Span() = delete;
