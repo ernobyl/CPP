@@ -8,7 +8,7 @@ void Span::addNumber(int number)
 	{
 	  throw std::overflow_error("Span full exception.");
 	}
-	_hasDup = (_set.insert(number).second) ? false : true;
+	_hasDup = !_set.insert(number).second;
 }
 
 void  Span::addNumber(int number, unsigned int n)
@@ -20,7 +20,7 @@ void  Span::addNumber(int number, unsigned int n)
 	_cur += n;
 	while (n--)
 	{
-		_hasDup = (_set.insert(number).second) ? false : true;
+		_hasDup = !_set.insert(number).second;
 	}
 }
 
@@ -33,23 +33,38 @@ void  Span::addNumber(const std::vector<int>& vec)
 	_cur += vec.size();
 	for (const int& x : vec)
 	{
-		_hasDup = (_set.insert(x).second) ? false : true;
+		_hasDup = !_set.insert(x).second;
 	}
 }
 
-void  Span::addNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
+void Span::addNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
 {
-	unsigned int size = end - begin;
-	if (_max - _cur <size)
-	{
-		throw std::overflow_error("Span full exception.");
-	}
-	_cur += size;
-	for (std::vector<int>::const_iterator it = begin; it != end; ++it)
-	{
-		_hasDup = (_set.insert(*it).second) ? false : true;
-	}
+    unsigned int size = std::distance(begin, end);
+    if (_cur + size > _max)
+    {
+        throw std::overflow_error("Span full exception.");
+    }
+    _cur += size;
+    for (auto it = begin; it != end; ++it)
+    {
+        _hasDup = !_set.insert(*it).second;
+    }
 }
+
+void Span::addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
+{
+    unsigned int size = std::distance(begin, end);
+    if (_cur + size > _max)
+    {
+        throw std::overflow_error("Span full exception.");
+    }
+    _cur += size;
+    for (auto it = begin; it != end; ++it)
+    {
+        _hasDup = !_set.insert(*it).second;
+    }
+}
+
 
 size_t  Span::shortestSpan() const
 {

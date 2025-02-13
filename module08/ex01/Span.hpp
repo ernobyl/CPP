@@ -1,9 +1,11 @@
 #pragma once
 
 #include <vector>
+#include <list>
 #include <set>
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 
 class Span
 {
@@ -38,6 +40,8 @@ public:
 	void	addNumber(const std::vector<int>& vec);
 	void	addNumber(std::vector<int>::const_iterator begin,
                            std::vector<int>::const_iterator end);
+	void	addNumber(std::list<int>::const_iterator begin,
+							std::list<int>::const_iterator end);
 	/*
 	Next, implement two member functions: shortestSpan() and longestSpan()
 	They will respectively find out the shortest span or the longest span (or distance, if
