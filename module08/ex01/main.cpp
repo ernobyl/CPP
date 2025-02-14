@@ -92,7 +92,21 @@ void exceptions_test3()
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
+	}
+	std::cout << std::endl;
+}
+
+void duplicate_test()
+{
+	Span sp = Span(7);
+	sp.addNumber(6);
+	sp.addNumber(3, 3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	std::cout << std::endl;
 }
 
 
@@ -116,6 +130,7 @@ int main()
 	exceptions_test();
 	exceptions_test2();
 	exceptions_test3();
+	duplicate_test();
 
 	return 0;
 }

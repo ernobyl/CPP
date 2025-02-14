@@ -2,7 +2,7 @@
 
 #include <stack>
 
-template <typename T>
+template <class T>
 class MutantStack : public std::stack<T>
 {
 public:
