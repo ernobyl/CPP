@@ -69,6 +69,13 @@ int main()
     }
     std::cout << std::endl;
 
+    std::cout << "Stack elements (using iterator): ";
+    for (auto &it : mstack)
+    {
+        std::cout << it << " ";
+    }
+    std::cout << std::endl;
+
     std::cout << "Stack elements (using reverse iterator): ";
     for (MutantStack<int>::reverse_iterator rit = mstack.rbegin(); rit != mstack.rend(); ++rit)
     {
