@@ -1,30 +1,34 @@
 #pragma once
 
-#include <string>
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include <map>
+#include <regex>
+#include <cstdlib>
 
-class DatesAndPrices
+class BitcoinExchange
 {
 private:
-	std::string                         _content;
-	std::map<std::string, unsigned int> _data;
+	std::map<std::string, double>	_data;
+	void							loadDatabase(const std::string &database);
 public:
 	// Default constructor unnecessary
-	DatesAndPrices() = delete;
+	BitcoinExchange() = delete;
 
 	// Parameterized constructor
-	DatesAndPrices(std::string database);
+	BitcoinExchange(const std::string &database);
 
 	// Copy constructor
-	DatesAndPrices(const DatesAndPrices& other);
+	BitcoinExchange(const BitcoinExchange& other);
 
 	// Copy assignment operator
-	DatesAndPrices& operator=(const DatesAndPrices& other);
+	BitcoinExchange& operator=(const BitcoinExchange& other);
 
 	// Destructor
-	~DatesAndPrices() = default;
+	~BitcoinExchange() = default;
 
-	std::map<std::string, unsigned int> parseDatabase(const std::string &database) const;
+	void processInputFile(const std::string &inputFile) const;
 
 };
