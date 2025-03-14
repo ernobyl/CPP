@@ -9,36 +9,22 @@ int run_operation(char o, std::stack<long> &nums)
     long a = nums.top(); nums.pop();
     long result = 0;
 
-    if (o == '+') {
-        if ((b > 0 && a > std::numeric_limits<int>::max() - b) || 
-            (b < 0 && a < std::numeric_limits<int>::min() - b)) 
-            throw std::runtime_error("integer overflow");
+    if (o == '+')
         result = a + b;
-    }
-    else if (o == '-') {
-        if ((b < 0 && a > std::numeric_limits<int>::max() + b) || 
-            (b > 0 && a < std::numeric_limits<int>::min() + b)) 
-            throw std::runtime_error("integer overflow");
+    else if (o == '-')
         result = a - b;
-    }
-    else if (o == '*') {
-        if ((a > 0 && b > 0 && a > std::numeric_limits<int>::max() / b) ||
-            (a > 0 && b < 0 && b < std::numeric_limits<int>::min() / a) ||
-            (a < 0 && b > 0 && a < std::numeric_limits<int>::min() / b) ||
-            (a < 0 && b < 0 && a < std::numeric_limits<int>::max() / b))
-            throw std::runtime_error("integer overflow");
+    else if (o == '*')
         result = a * b;
-    }
-    else if (o == '/') {
+    else if (o == '/')
+    {
         if (b == 0)
             throw std::runtime_error("division by zero");
-        if (a == std::numeric_limits<int>::min() && b == -1)
-            throw std::runtime_error("integer overflow");
         result = a / b;
     }
+    if (result < std::numeric_limits<int>::min() || result > std::numeric_limits<int>::max())
+        throw std::runtime_error("integer overflow");
     return result;
 }
-
 
 
 int RPN::calc(const std::string &argument)
