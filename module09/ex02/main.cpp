@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <set>
+#include <cmath>
 
 bool is_positive_integer(const std::string& str)
 {
@@ -12,6 +13,16 @@ bool has_duplicates(const std::vector<int>& numbers)
     return unique_nums.size() != numbers.size();
 }
 
+int F(int n)
+{
+    int sum = 0;
+    for (int k = 1; k <= n; ++k) {
+        double value = (3.0 / 4.0) * k;
+        sum += static_cast<int>(ceil(log2(value)));
+    }
+    return sum;
+}
+
 int main(int argc, char** argv)
 {
     if (argc < 2)
@@ -21,6 +32,7 @@ int main(int argc, char** argv)
     }
 
     std::vector<int> numbers;
+    int num_count = 0;
     for (int i = 1; i < argc; i++)
     {
         if (!is_positive_integer(argv[i]))
@@ -28,6 +40,7 @@ int main(int argc, char** argv)
             std::cout << "Error: Invalid input detected." << std::endl;
             return 1;
         }
+        num_count++;
         numbers.push_back(std::stoi(argv[i]));
     }
 
@@ -42,6 +55,7 @@ int main(int argc, char** argv)
     sorter.sortAndMeasure();
     std::cout << "Vector: recursion depth: " << sorter.recursion_depth << std::endl;
     std::cout << "Vector: comparison count: " << sorter.comparison_count << std::endl;
+    std::cout << "expected comparison count: under " << F(num_count) << std::endl;
 
     return 0;
 }

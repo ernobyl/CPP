@@ -9,8 +9,13 @@ void PmergeMe::mergeSequencesVector(std::vector<int>& sorted, std::vector<int>& 
 {
 	for (int num : to_insert)
 	{
-		auto it = std::lower_bound(sorted.begin(), sorted.end(), num);
-		comparison_count += std::distance(sorted.begin(), it); 
+		int binary_comparisons = 0;
+		auto it = std::lower_bound(sorted.begin(), sorted.end(), num, [&](int a, int b)
+		{
+        	binary_comparisons++;
+        	return a < b;
+    	});
+		comparison_count += binary_comparisons;
 		sorted.insert(it, num);
 	}
 }
@@ -50,6 +55,12 @@ void PmergeMe::sortVector(std::vector<int>& arr)
 
 	// if odd element, keep it aside
 	int oddElement = (arr.size() % 2 != 0) ? arr.back() : -1;
+
+	if (arr.size() <= 4)
+	{
+		std::sort(arr.begin(), arr.end());
+		return;
+	}
 
 	// sort larger elements recursively
 	sortVector(larger);
