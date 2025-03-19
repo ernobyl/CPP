@@ -3,6 +3,7 @@ CPP = c++
 STANDARD = -std=c++11
 CPPFLAGS = -Wall -Wextra -Werror $(STANDARD)
 SRCS = main.cpp \
+		PmergeMe.cpp
 
 OBJS	:= ${SRCS:.cpp=.o}
 
